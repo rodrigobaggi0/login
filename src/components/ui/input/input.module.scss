@@ -1,0 +1,27 @@
+// src/components/InputField/InputField.module.scss
+.inputWrapper {
+    width: 16vw;
+    height: 2vw;
+    
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+
+    margin: 1vw 0 0;
+
+    .input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .iconLeft, .iconRight {
+        color: white;
+        font-size: 1.25rem;
+        padding-right: 0.5rem;
+    }
+}
