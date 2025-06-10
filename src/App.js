@@ -7,10 +7,8 @@ function App() {
   return (
     <div className='App'>
       <header>
-        <nav>
           <Link to={'/home'}>HOME</Link>
           <Link to={'/'}>LOGIN</Link>
-        </nav>
       </header>
       <Routes>
         <Route path='/' element={<LoginPage />} />

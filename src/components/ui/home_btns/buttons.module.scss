@@ -1,0 +1,132 @@
+  #button_header {
+     width: 32%;
+     height: 100%;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+   }
+
+   .button_container {
+     position: relative;
+     margin: 0 0.5em;
+   }
+
+   .button_border {
+     padding: 0.32vh;
+     inset: 0;
+     background: #00e1ff;
+     clip-path: path("M 90 0 C 121 0 126 5 126 33 C 126 61 121 66 90 66 L 33 66 C 5 66 0 61 0 33 C 0 5 5 0 33 0 Z");
+   }
+
+   .button {
+     justify-content: center;
+     align-items: center;
+     border: none;
+     clip-path: path("M 90 0 C 115 0 120 5 120 30 C 120 55 115 60 90 60 L 30 60 C 5 60 0 55 0 30 C 0 5 5 0 30 0 Z");
+     width: 6.27vw;
+     height: 6.5vh;
+     background: #000000;
+     display: flex;
+     flex-direction: row;
+     gap: 0.5em;
+     color: #fff;
+     overflow: hidden;
+     font-family: var(--fontP);
+   }
+
+   .real_button {
+     position: absolute;
+     width: 6.27vw;
+     height: 6.5vh;
+     z-index: 1;
+     outline: none;
+     border: none;
+     border-radius: 1.84vh;
+     cursor: pointer;
+     opacity: 0;
+   }
+
+   .spin {
+     position: absolute;
+     inset: 0;
+     z-index: -2;
+     opacity: 0.5;
+     overflow: hidden;
+     transition: 0.3s;
+   }
+
+   .real_button:active~div .spin {
+     opacity: 1;
+   }
+
+   .spin_blur {
+     filter: blur(2em) url(#unopaq);
+   }
+
+   .spin_intense {
+     inset: -0.125em;
+     filter: blur(0.25em) url(#unopaq2);
+     border-radius: 0.75em;
+   }
+
+   .spin_inside {
+     inset: -2px;
+     border-radius: inherit;
+     filter: blur(2px) url(#unopaq3);
+     z-index: 0;
+   }
+
+   .spin::before {
+     content: "open-quote";
+     position: absolute;
+     inset: -150%;
+     animation:
+       speen 2s cubic-bezier(0.56, 0.15, 0.28, 0.86) infinite,
+       woah 2s infinite;
+     animation-play-state: paused;
+   }
+
+   .real_button:hover~div .spin::before {
+     animation-play-state: running;
+   }
+
+   .spin_blur::before {
+     background: linear-gradient(90deg, #4c00ff 30%, #00000000 50%, #4c00ff 70%);
+
+   }
+
+   .spin_intense::before {
+     background: linear-gradient(90deg, #000000 20%, #00000000 45% 55%, #1900ff 80%);
+   }
+
+   .spin_inside::before {
+     background: linear-gradient(180deg, #ae00ff 30%, #00000000 45% 55%, #4400ff 70%);
+     
+   }
+
+   @keyframes speen {
+     0% {
+       rotate: 10deg;
+     }
+
+     50% {
+       rotate: 190deg;
+     }
+
+     to {
+       rotate: 370deg;
+     }
+   }
+
+   @keyframes woah {
+
+     0%,
+     to {
+       scale: 1;
+     }
+
+     50% {
+       scale: 0.75;
+     }
+   }
