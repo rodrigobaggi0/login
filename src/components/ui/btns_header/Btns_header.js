@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from './buttons.module.scss'
+import styles from './Btns_header.module.scss'
 
 
 
-function Buttons({text, iconFa, onClick}) {
+function Btns_header({text, iconFa, onClick}) {
   return <>
     <div className={styles.button_container} onClick={onClick}>
       <button className={styles.real_button}></button>
@@ -20,4 +20,4 @@ function Buttons({text, iconFa, onClick}) {
     </div>
   </>
 }
-export default Buttons;   
+export default Btns_header;   
