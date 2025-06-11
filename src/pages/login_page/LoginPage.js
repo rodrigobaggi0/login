@@ -44,7 +44,7 @@ function LoginPage() {
             <div className={styles.Blur}></div>
             <div className={styles.Title}>
                 <h1>LOGIN</h1>
-                <p>Agende seu teste drive hoje!</p>
+                <p>Agende seu test drive hoje!</p>
             </div>
             <div>
                 <LoginInputs onChange={onChange}/>
