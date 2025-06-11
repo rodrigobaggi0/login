@@ -24,8 +24,8 @@ function LoginPage() {
     const navigate = useNavigate();
 
     const cad = {
-        email: 'teste@mail.com',
-        password: '12345678',
+        email: 'rodrigo.npii@gmail.com',
+        password: 'asdzxc123',
     }
 
     const tryLogin = () => {
