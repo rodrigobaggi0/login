@@ -25,7 +25,7 @@ function LoginPage() {
 
     const cad = {
         email: 'rodrigo.npii@gmail.com',
-        password: 'asdzxc123',
+        password: 'asdzxc1234',
     }
 
     const tryLogin = () => {
