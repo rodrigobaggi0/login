@@ -1,7 +1,7 @@
 import styles from '../../../pages/form_card/form_card_page.module.scss';
 import Input from '../../ui/input/Input';
 import ButtonText from '../../ui/btn_text/ButtonText';
-import { faIdCard, faImage, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCircleDollarToSlot, faIdCard, faImage, faUser } from "@fortawesome/free-solid-svg-icons";
 
 export default function FormCard({ formData, onChange, onSubmit, modoEdicao }) {
   return (
@@ -27,6 +27,13 @@ export default function FormCard({ formData, onChange, onSubmit, modoEdicao }) {
           type="text"
           icon={faImage}
           value={formData.img}
+          onChange={onChange}
+        />
+        <Input
+          type="text"
+          name="value"
+          icon={faCircleDollarToSlot}
+          value={formData.value}
           onChange={onChange}
         />
         <ButtonText type="submit">

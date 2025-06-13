@@ -3,6 +3,7 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     overflow: scroll;
+    overflow: visible;
 }
 
 .Card {
@@ -20,32 +21,30 @@
     background-color: rgb(0, 0, 0);
     border-radius: 0.8vw;
     box-shadow:
-        0.5vw 0.5vw 1vw rgb(253, 215, 2),  /* sombra principal */
-        inset 0.2vw 0.2vw 0.5vw rgba(255, 255, 255, 0.05), /* brilho interno */
-        inset -0.2vw -0.2vw 0.5vw rgba(0, 0, 0, 0.2);       /* sombra interna */  
+        0.5vw 0.5vw 1vw rgb(253, 215, 2),
+        /* sombra principal */
+        inset 0.2vw 0.2vw 0.5vw rgba(255, 255, 255, 0.05),
+        /* brilho interno */
+        inset -0.2vw -0.2vw 0.5vw rgba(0, 0, 0, 0.2);
+    /* sombra interna */
 
-    margin: 1vw; 
-    
-
-       
-
+    margin: 1vw;
 
     img {
-        width: 100%;
+        width: 50%;
         height: auto;
         object-fit: cover;
         border-top-left-radius: 0.8vw;
-        border-top-right-radius: 0.8vw;       
-        
+        border-top-right-radius: 0.8vw;
+
     }
 
-    h1 {
+    h1,h2 {
         width: 100%;
         padding: 0 0 0 1.5vw;
         font-size: 1vw;
         color: rgb(255, 255, 255);
-        
-        
+        margin: 0;
     }
 
     h4 {
@@ -53,6 +52,7 @@
         width: 100%;
         padding: 0 0 0 1.5vw;
         color: rgb(253, 215, 2);
+        margin: 0;
     }
 
     div {
@@ -93,11 +93,10 @@
     h1 {
         padding: 0;
     }
-    
+
 
     &:hover {
         transform: scale(1.05);
-        
+
     }
 }
-

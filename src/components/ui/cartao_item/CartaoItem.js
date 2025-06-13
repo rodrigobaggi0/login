@@ -1,6 +1,6 @@
 import styles from '../../../pages/home_page/home.module.scss';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 export default function CartaoItem({ cartao, onEdit, onDelete }) {
   return (
@@ -8,11 +8,12 @@ export default function CartaoItem({ cartao, onEdit, onDelete }) {
       <img src={cartao.img} alt="image-cartao" />
       <h1>{cartao.nome}</h1>
       <h4>{cartao.id}</h4>
+      <h2>{cartao.value}</h2>
       <div>
-        <button className={styles.BinButton} onClick={onDelete}>
+        <button className={styles.BinButton} onClick={() => onDelete(cartao.id)}>
           <FontAwesomeIcon icon={faTrashCan} />
         </button>
-        <button className={styles.PencilButton} onClick={onEdit}>
+        <button className={styles.PencilButton} onClick={() => onEdit(cartao.id)}>
           <FontAwesomeIcon icon={faEdit} />
         </button>
       </div>
