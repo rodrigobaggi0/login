@@ -1,4 +1,3 @@
-
 import styles from './button_text.module.scss'
 
 function ButtonText({ children, onClick }) {

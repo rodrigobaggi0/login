@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useCartoes } from './useCartoes'; // A função useCartoes deve estar no caminho correto
+import { useCartoes } from './useCartoes';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export const useFormCard = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const id = Number(location.state?.id); // Recupera o ID do cartão
+  const id = location.state?.id;
 
   const { cartoes, adicionarCartao, editarCartao } = useCartoes();
+
   const [formData, setFormData] = useState({
     id: '',
     nome: '',
@@ -15,18 +16,11 @@ export const useFormCard = () => {
     value: '',
   });
 
-  const [carregandoDados, setCarregandoDados] = useState(true); // Estado para saber se os dados foram carregados
-
   useEffect(() => {
-    if (id) {
-      const cartaoSelecionado = cartoes.find(c => c.id === id); // Busca o cartão com o ID correto
-      if (cartaoSelecionado) {
-        setFormData(cartaoSelecionado); // Preenche os dados no formData
-        setCarregandoDados(false); // Marca que os dados foram carregados
-      }
+    if (id !== undefined && cartoes[id]) {
+      setFormData(cartoes[id]);
     }
-  }, [id, cartoes]); // Executa quando o id ou os cartoes mudam
-  
+  }, [id, cartoes]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,20 +37,19 @@ export const useFormCard = () => {
       value: formData.value,
     };
 
-    if (id) {
-      editarCartao(id, novoCartao); // Se houver ID, edita o cartão
+    if (id === undefined) {
+      adicionarCartao(novoCartao);
     } else {
-      adicionarCartao(novoCartao); // Caso contrário, adiciona um novo
+      editarCartao(id, novoCartao);
     }
 
-    navigate('/home');  // Redireciona para a página de listagem de cartões
+    navigate('/home');
   };
 
   return {
     formData,
     handleChange,
     handleSubmit,
-    modoEdicao: !!id,  // Se o ID existir, está no modo de edição
-    carregandoDados,  // Indica se os dados ainda estão carregando
+    modoEdicao: id !== undefined,
   };
 };

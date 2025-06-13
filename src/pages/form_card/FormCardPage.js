@@ -1,5 +1,5 @@
-import { useFormCard } from '../../hooks/useFormCard.js';
-import FormCard from '../../components/container/form_cards/FormCard.js';
+import { useFormCard } from '../../hooks/useFormCard';
+import FormCard from '../../components/container/form_cards/FormCard';
 
 export default function FormCardPage() {
   const {

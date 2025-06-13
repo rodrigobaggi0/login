@@ -3,7 +3,6 @@ import { cartoesBase } from '../models/cartoes';
 
 const STORAGE_KEY = 'c';
 
-
 export const useCartoes = () => {
   const [cartoes, setCartoes] = useState([]);
 

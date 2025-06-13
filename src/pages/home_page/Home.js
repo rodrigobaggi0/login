@@ -10,7 +10,7 @@ export default function Home() {
     <CartaoGrid
       cartoes={cartoes}
       onAdd={() => navigate('/formCard')}
-      onEdit={(id) => navigate('/formCard', { state: { id: Number(id) } })}
+      onEdit={(id) => navigate('/formCard', { state: { id } })}
       onDelete={removerCartao}
     />
   );
