@@ -26,11 +26,11 @@
      clip-path: path("M 90 0 C 115 0 120 5 120 30 C 120 55 115 60 90 60 L 30 60 C 5 60 0 55 0 30 C 0 5 5 0 30 0 Z");
      width: 6.27vw;
      height: 6.5vh;
-     background: #000000;
+     background: rgb(0, 0, 0);
      display: flex;
      flex-direction: row;
      gap: 0.5em;
-     color: #fff;
+     color: rgb(253, 215, 2);
      overflow: hidden;
      font-family: var(--fontP);
    }
@@ -92,16 +92,19 @@
    }
 
    .spin_blur::before {
-     background: linear-gradient(90deg, #4c00ff 30%, #00000000 50%, #4c00ff 70%);
+     background: linear-gradient(90deg, oklch(48.203% 0.29783 277.23) 30%, #00000000 50%, #4c00ff 70%);
+     
 
    }
 
    .spin_intense::before {
      background: linear-gradient(90deg, #000000 20%, #00000000 45% 55%, #1900ff 80%);
+     
    }
 
    .spin_inside::before {
-     background: linear-gradient(180deg, #ae00ff 30%, #00000000 45% 55%, #4400ff 70%);
+     background: linear-gradient(180deg, rgb(0, 0, 0) 30%, rgba(253, 215, 2) 45% 55%, rgb(253, 215, 2) 70%);
+     animation-play-state: running;
      
    }
 

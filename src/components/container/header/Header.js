@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
-import styles from "./header.module.scss"
+import BtnsHeader from '../../ui/btns_header/Btns_header';
+import { faHome, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import styles from './header.module.scss';
 
 
 function Header() {
-    return <>
-        <header className={styles.Header}>
-            <Link className={styles.Btns_header} to={'/home'}>HOME</Link>
-            <Link className={styles.Btns_header} to={'/'}>LOGIN</Link>
-        </header>
-
-    </>
+  return (
+    <header className={styles.Header}>
+      <BtnsHeader text="HOME" iconFa={faHome} to="/home" />
+      <BtnsHeader text="LOGIN" iconFa={faSignInAlt} to="/" />
+    </header>
+  );
 }
-export default Header
+
+export default Header;

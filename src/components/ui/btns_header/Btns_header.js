@@ -1,10 +1,9 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from './Btns_header.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+import styles from './Btns_header.module.scss';
 
-
-
-function Btns_header({text, iconFa, onClick}) {
-  return <>
+function Btnsheader({ text, iconFa, to, onClick }) {
+  return <Link to={to}>
     <div className={styles.button_container} onClick={onClick}>
       <button className={styles.real_button}></button>
       <div className={`${styles.spin} ${styles.spin_blur}`}></div>
@@ -14,10 +13,11 @@ function Btns_header({text, iconFa, onClick}) {
         <div className={`${styles.spin} ${styles.spin_inside}`}></div>
         <div className={styles.button}>
           {text}
-           <FontAwesomeIcon icon={iconFa} />
+          <FontAwesomeIcon icon={iconFa} />
         </div>
       </div>
     </div>
-  </>
+  </Link>;
 }
-export default Btns_header;   
+
+export default Btnsheader;
