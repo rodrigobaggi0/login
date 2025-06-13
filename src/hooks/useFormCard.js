@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
-import { useCartoes } from './useCartoes';
+import { useCartoes } from './useCartoes'; // A função useCartoes deve estar no caminho correto
 import { useNavigate, useLocation } from 'react-router-dom';
-
 
 export const useFormCard = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const idParam = location.state?.id;
+  const id = Number(location.state?.id); // Recupera o ID do cartão
 
   const { cartoes, adicionarCartao, editarCartao } = useCartoes();
-
   const [formData, setFormData] = useState({
     id: '',
     nome: '',
@@ -17,25 +15,22 @@ export const useFormCard = () => {
     value: '',
   });
 
-  // Corrigido: useEffect só roda se cartoes estiver preenchido
+  const [carregandoDados, setCarregandoDados] = useState(true); // Estado para saber se os dados foram carregados
+
   useEffect(() => {
-    if (idParam !== undefined && cartoes.length > 0) {
-      const id = Number(idParam); // garantir que seja number
-      const cartaoEncontrado = cartoes.find(c => c.id === Number(id));
-      if (cartaoEncontrado) {
-        setFormData({
-          id: cartaoEncontrado.id,
-          nome: cartaoEncontrado.nome,
-          img: cartaoEncontrado.img,
-          value: cartaoEncontrado.value || '',
-        });
+    if (id) {
+      const cartaoSelecionado = cartoes.find(c => c.id === id); // Busca o cartão com o ID correto
+      if (cartaoSelecionado) {
+        setFormData(cartaoSelecionado); // Preenche os dados no formData
+        setCarregandoDados(false); // Marca que os dados foram carregados
       }
     }
-  }, [idParam, cartoes]);
+  }, [id, cartoes]); // Executa quando o id ou os cartoes mudam
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -48,19 +43,20 @@ export const useFormCard = () => {
       value: formData.value,
     };
 
-    if (idParam === undefined) {
-      adicionarCartao(novoCartao);
+    if (id) {
+      editarCartao(id, novoCartao); // Se houver ID, edita o cartão
     } else {
-      editarCartao(Number(idParam), novoCartao);
+      adicionarCartao(novoCartao); // Caso contrário, adiciona um novo
     }
 
-    navigate('/home');
+    navigate('/home');  // Redireciona para a página de listagem de cartões
   };
 
   return {
     formData,
     handleChange,
     handleSubmit,
-    modoEdicao: idParam !== undefined,
+    modoEdicao: !!id,  // Se o ID existir, está no modo de edição
+    carregandoDados,  // Indica se os dados ainda estão carregando
   };
 };

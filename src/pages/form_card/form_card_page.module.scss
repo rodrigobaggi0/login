@@ -1,7 +1,7 @@
-.FormContainer{
+.FormContainer {
     width: 30vw;
     height: 50vh;
-    
+
     position: relative;
     z-index: 1;
 
@@ -32,10 +32,10 @@
         margin: 0;
         text-align: start;
         color: rgb(253, 215, 2);
-        
+
     }
 
-    .Form{
+    .Form {
         width: 70%;
         height: 60%;
 
@@ -43,5 +43,71 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+    }
+
+    /* Estilos gerais para o botão (criar/editar) */
+    .ButtonText {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 1px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        /* Cores e fundo do botão */
+        background-color: #000000;
+        /* Cor de fundo azul (pode ser ajustada conforme seu design) */
+        color: white;
+
+        /* Efeito de hover */
+        &:hover {
+            background-color: #000000;
+            /* Cor de fundo azul escuro ao passar o mouse */
+        }
+
+        /* Efeito de foco */
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(253, 215, 2);
+            /* Cor de foco */
+        }
+    }
+
+
+    /* Estilo específico para o botão de excluir */
+    .DeleteButton {
+        @extend .ButtonText;
+        /* Herda as propriedades do botão de criar/editar */
+        background-color: #000000;
+        /* Cor de fundo */
+        color: white;
+
+        /* Efeito de hover para o botão de excluir */
+        &:hover {
+            background-color: rgb(253, 215, 2);
+            /* Cor de fundo ao passar o mouse */
+            color: black;
+        }
+
+        /* Efeito de foco para o botão de excluir */
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
+            /* Cor de foco */
+        }
+
+        /* Ícone de exclusão */
+        .fa-trash-can {
+            margin-right: 8px;
+            /* Ajuste o espaçamento do ícone */
+        }
+
+        /* Adiciona margem superior para afastar o botão de excluir */
+        margin-top: 15px;
+        /* Distância do botão de atualizar */
     }
 }
