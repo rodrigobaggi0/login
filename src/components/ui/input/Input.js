@@ -2,7 +2,7 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import styles from './input.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Input({ name, type = "text", icon, onChange}) {
+function Input({ name, type = "text", icon, onChange, value}) {
   return (
     <div className={styles.inputWrapper}>
       <FontAwesomeIcon icon={icon} className={styles.iconLeft} />
@@ -12,6 +12,7 @@ function Input({ name, type = "text", icon, onChange}) {
         className={styles.input}
         autoComplete="off"
         onChange={onChange}
+        value = {value}
       />
       {type === 'password' ?
         <FontAwesomeIcon icon={faEye} className={styles.iconRight} /> 

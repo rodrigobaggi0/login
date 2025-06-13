@@ -14,7 +14,7 @@ export const useFormCard = () => {
     nome: '',
     img: '',
     value: '',
-  });
+  },);
 
   useEffect(() => {
     if (id !== undefined && cartoes[id]) {
