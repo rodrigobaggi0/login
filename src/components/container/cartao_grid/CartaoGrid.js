@@ -36,6 +36,8 @@ export default function CartaoGrid({ cartoes, onAdd, onEdit, onDelete }) {
       height={1000}
       width={columnCount * 250}
       className={styles.Grind}
+      style={{ overflow: 'visible' }}
+
     >
       {Cell}
     </FixedSizeGrid>
