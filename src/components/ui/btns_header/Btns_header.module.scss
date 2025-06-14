@@ -10,6 +10,11 @@
    .button_container {
      position: relative;
      margin: 0 0.5em;
+         &:hover {
+        transform: scale(1.05);
+        
+
+    }
    }
 
    .button_border {
@@ -33,6 +38,7 @@
      color: rgb(253, 215, 2);
      overflow: hidden;
      font-family: var(--fontP);
+     
    }
 
    .real_button {
@@ -92,7 +98,7 @@
    }
 
    .spin_blur::before {
-     background: linear-gradient(90deg, oklch(48.203% 0.29783 277.23) 30%, #00000000 50%, #4c00ff 70%);
+     background: linear-gradient(90deg, rgb(0, 0, 0) 30%, rgba(253, 215, 2) 50%, #000000 70%);
      
 
    }
@@ -103,7 +109,7 @@
    }
 
    .spin_inside::before {
-     background: linear-gradient(180deg, rgb(0, 0, 0) 30%, rgba(253, 215, 2) 45% 55%, rgb(253, 215, 2) 70%);
+     background: linear-gradient(180deg, rgb(0, 0, 0) 30%, rgb(253, 215, 2) 45% 55%, rgb(0, 0, 0) 70%);
      animation-play-state: running;
      
    }

@@ -24,6 +24,7 @@
         background-color: #00000060;
         backdrop-filter: blur(5px);
         z-index: -1;
+        
     }
 
     .Title {
@@ -44,4 +45,20 @@
         justify-content: space-around;
         align-items: center;
     }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.FormContainer {
+  animation: fadeInUp 0.5s ease-out;
 }

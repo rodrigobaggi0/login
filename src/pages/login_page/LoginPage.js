@@ -2,7 +2,6 @@ import { useState } from 'react';
 import LoginBtns from '../../components/container/login_btns/LoginBtns';
 import LoginInputs from '../../components/container/login_inputs/LoginInputs';
 import TextNavigation from '../../components/ui/text_navigation/TextNavigation';
-
 import styles from './login_page.module.scss'
 import { useNavigate } from 'react-router-dom';
 
