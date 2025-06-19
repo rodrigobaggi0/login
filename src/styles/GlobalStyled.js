@@ -1,30 +1,25 @@
-:root[data-theme = 'dark']{
-  --bg-color: #333333;
-  --text-color: #ffffff;
-  --bg-img:url("https://images.hdqwalls.com/wallpapers/novitec-rosso-ferrari.jpg");
-}
-:root[data-theme = 'light']{
-  --bg-color: #ffffff;
-  --text-color: #333333;
-  --bg-img: url("https://images.hdqwalls.com/download/yellow-porsche-911-gt3-rs-5r-3840x2160.jpg");
-}
+import { createGlobalStyle } from "styled-components";
 
+export const GlobalStyle = createGlobalStyle`
 
-body{
+body {
   margin: 0;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
+  background-color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
+   transition: background-color 0.3s ease, color 0.3s ease;  
 }
 
-button{
+button {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    
 }
 
 input::-ms-reveal,
@@ -41,3 +36,4 @@ input {
   appearance: none;
   -webkit-appearance: none;
 }
+`;

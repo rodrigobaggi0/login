@@ -5,23 +5,34 @@ import Home from './pages/home_page/Home';
 import Header from './components/container/header/Header';
 import FormCardPage from './pages/form_card/FormCardPage';
 import { ThemeProvider } from './theme/themeContext';
-import ButtonSwitch from './components/ui/btn_switch/ButtonSwitch';
+import { GlobalStyle } from './styles/GlobalStyled';
+import styled from 'styled-components';
+
+const AppStyle = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(${({theme}) => theme.img.primary});
+  background-size: cover;
+  `;
 
 
 function App() {
   return (
-    <div className='App'>
-      <ThemeProvider>
+        <ThemeProvider>
+        <GlobalStyle />
+        <AppStyle>
         <Header />
         <Routes>
           <Route path='/' element={<LoginPage />} />
           <Route path='/home' element={<Home />} />
           <Route path='/formCard' element={<FormCardPage />} />
         </Routes>
-      </ThemeProvider>
-
-
-    </div>
+        </AppStyle>
+      </ThemeProvider>   
   );
 }
 

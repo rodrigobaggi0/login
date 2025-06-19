@@ -20,8 +20,9 @@
    .button_border {
      padding: 0.32vh;
      inset: 0;
-     background: #00e1ff;
+     background: #000000;
      clip-path: path("M 90 0 C 121 0 126 5 126 33 C 126 61 121 66 90 66 L 33 66 C 5 66 0 61 0 33 C 0 5 5 0 33 0 Z");
+     
    }
 
    .button {
@@ -99,6 +100,7 @@
 
    .spin_blur::before {
      background: linear-gradient(90deg, rgb(0, 0, 0) 30%, rgba(253, 215, 2) 50%, #000000 70%);
+     
      
 
    }
